@@ -1,0 +1,85 @@
+:root {
+    --default-background-color: #564256;
+    --default-font-family: sans-serif;
+    --default-font-color: #e8e8e8;
+
+    --h1-color: #bfbfbf;
+    --h2-color: #96939b;
+
+    --item-base-color: #fc814a;
+    --item-border-color: #e8e8e8;
+    --item-border-size: 0.4rem;
+    --item-border-radius: 0.2rem;
+    --item-hover-color: #fdae8b;
+    --item-font-family: sans-serif;
+    --item-font-size: var(--default-font-size) * 0.8;
+    --item-font-color: #564256;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+
+    background-color: var(--default-background-color);
+    font-family: var(--default-font-family);
+    font-size: 1rem;
+    color: var(--default-font-color);
+}
+
+.container {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--h1-color);
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 0.2rem 0 2rem 0;
+    color: var(--h2-color);
+}
+
+ul {
+    margin-top: 1rem;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 15rem);
+    grid-template-rows: repeat(2, 15rem);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+}
+
+li {
+    background-color: var(--item-base-color);
+    border: var(--item-border-size) solid var(--item-border-color);
+    border-radius: var(--item-border-radius);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li:hover {
+    background-color: var(--item-hover-color);
+}
+
+a {
+    width: 80%;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--item-font-family);
+    font-size: var(--item-font-size);
+    font-weight: bold;
+    color: var(--item-font-color);
+}
+
