@@ -1,0 +1,106 @@
+/* Variables */
+:root{
+    --header-color: #ecef81;
+    --header-font: sans-serif;
+    --header-font-color: #545c52;
+
+    --nav-base-color: #98e2c6;
+    --nav-item-color: #fdfdf3;
+    --nav-border-item-color: #fdfdf3;
+    --nav-font: monospace;
+    --nav-font-color: #545c52;
+}
+
+  /* Reset */
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+  /* Core */
+header {
+    background-color: var(--header-color);
+    
+    font-family: var(--header-font);
+    color: var(--header-font-color);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header ul {
+    list-style-type: none;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul li {
+    padding: 1rem;
+}
+
+header ul li a {
+    font-family: var(--header-font);
+    color: var(--header-font-color);
+}
+
+nav {
+    background-color: var(--var-color);
+
+    font-family: var(--var-font);
+    color: var(--var-font-color);
+    text-transform: uppercase;
+    font-size: 0.6rem;
+}
+
+nav ul {
+    background-color: var(--nav-base-color);
+    list-style-type: none;
+    padding: 0.15rem 0.3rem;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0.2rem;
+    padding: 0.2rem;
+    background-color: var(--nav-item-color);
+    border: 1px solid var(--nav-border-item-color);
+    border-radius: 0.1rem;
+
+    flex-grow: 1;
+}
+
+nav ul li a {
+    font-family: var(--nav-font);
+    color: var(--nav-font-color);
+}
+
+@media screen and (max-width: 37.5rem) {
+    header .brand-name {
+        margin: 0;
+        padding: 0;
+        width: 0;
+        opacity: 0;
+    }
+
+    nav {
+        order: 99;
+        margin-top: auto;
+    }
+}
