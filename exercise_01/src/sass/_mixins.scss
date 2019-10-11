@@ -1,0 +1,42 @@
+// Mixins
+@mixin section-flex-init {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+
+    @media screen and (max-width: 975px){
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+@mixin div-flex-init {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 3rem;
+
+    &:nth-child(5) {  
+        flex-basis: 6rem;
+    }
+}
+
+@mixin background-color-spectrum($base-color) {
+    @for $i from 1 through 4 {
+        &:nth-child(#{5 - $i}) {
+            background-color: darken($base-color, $i * 5%);
+        }
+    }
+
+    &:nth-child(5) {
+        background-color: $base-color;
+    }
+
+    @for $i from 1 through 4 {
+        &:nth-child(#{$i + 5}) {
+            background-color: lighten($base-color, $i * 5%);
+        }
+    }
+}

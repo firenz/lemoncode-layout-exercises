@@ -1,0 +1,63 @@
+@import 'variables';
+
+@import 'mixins';
+
+// Core
+body {
+    font-family: $font-stack;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin: 2rem;
+}
+
+section {
+    margin: 0 auto 0.7rem auto;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    background-color: $section-color;
+    
+    width: 80%;
+    max-width: 1500px;
+    height: calc(100vh / 3);
+
+    @include section-flex-init();
+
+    &:first-child {
+        margin-top: 2rem;
+    }
+
+    &:last-child {
+        margin-bottom: 2rem;
+    }
+
+    @media screen and (max-width: 975px){
+        height: 30rem;
+    }
+    div {
+        margin: 0.5rem 0.4rem;
+        border-radius: 0.1rem;
+        background-color: 4default-div-color;
+        color: $font-color;
+
+        @include div-flex-init();
+
+            @media screen and (max-width: 975px){
+                margin: 0.2rem;
+            }
+    }
+}
+
+.primary div{
+    @include background-color-spectrum($primary-color);
+}
+
+.secondary div{
+    @include background-color-spectrum($secondary-color);
+}
+
+.tertiary div{
+    @include background-color-spectrum($tertiary-color);
+}
