@@ -1,0 +1,23 @@
+//Mixins
+@mixin container-grid-init(){
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 
+        "sidebar content-a"
+        "sidebar content-b";
+    
+    @media screen and (max-width: 80rem) {
+        grid-template-rows: 5rem repeat(2, 1fr);
+        grid-template-areas: 
+        "sidebar sidebar"
+        "content-a content-a"
+        "content-b content-b";
+    }
+    
+    @media screen and (max-width: 33.75rem) {
+        grid-template-rows: 2.5rem repeat(2, 1fr);
+    }
+}

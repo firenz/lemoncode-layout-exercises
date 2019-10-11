@@ -1,0 +1,113 @@
+@import '_variables';
+@import '_mixins';
+
+@mixin section-init($grid-area-name, $bg-color: black, $padding: 0.2rem, $font-family: sans-serif, $font-color: white) {
+    background-color: $bg-color;
+    padding: $padding;
+    font-family: $font-family;
+    color: $font-color;
+    
+    grid-area: $grid-area-name;
+} 
+
+@mixin sidebar-init-items() {
+    li {
+        padding: 0.5em 0.2rem;
+
+        a {
+        color: $sidebar-font-color;
+        text-decoration: none;
+
+        &:hover {
+            color: lighten($sidebar-font-color, 8%);
+        }
+        }
+        
+        @media screen and (max-width: 33.75rem) {
+        padding: 0 0.2rem;
+        }
+    }
+}
+
+@mixin sidebar-flex-init() {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: 80rem) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    @media screen and (max-width: 33.75rem) {
+        justify-content: flex-start;
+    }
+}
+
+//Core
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $default-background-color;
+    font-family: $default-font-family;
+    font-size: $default-font-size;
+}
+
+p {
+    margin: 1.5rem 1rem;
+    padding-bottom: 1rem;
+    text-align: justify;
+    line-height: $default-line-height;
+}
+
+.container {
+    height: 100vh;
+    max-width: 90rem;
+    margin: 0 auto;
+    @include container-grid-init();
+}
+
+.content-a {
+    @include section-init(
+        content-a,
+        $primary-base-color, 
+        $default-content-padding, 
+        $primary-font-family, 
+        $primary-font-color
+    );
+}
+
+.content-b {
+    @include section-init(
+        content-b,
+        $secondary-base-color, 
+        $default-content-padding, 
+        $secondary-font-family, 
+        $secondary-font-color
+    );
+}
+
+.sidebar {
+    @include section-init(
+        sidebar,
+        $sidebar-base-color, 
+        0.2rem, 
+        $sidebar-font-family, 
+        $sidebar-font-color
+    );
+
+    ul {
+        list-style: none;
+        @include sidebar-init-items();
+        @include sidebar-flex-init();
+        
+        @media screen and (max-width: 33.75rem) {
+            margin: 0.8rem 0;
+            padding-left: 0.2rem;
+        }
+    }
+
+    @media screen and (max-width: 33.75rem) {
+        padding: 0;
+    }
+}
